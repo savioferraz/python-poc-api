@@ -1,6 +1,7 @@
 from flask import Flask
 from api.database.database import create_tables
 from api.routes.users_routes import users_bp
+from api.routes.tasks_routes import tasks_bp
 
 app = Flask(__name__)
 
@@ -18,6 +19,7 @@ def health():
 
 
 app.register_blueprint(users_bp, url_prefix="/users")
+app.register_blueprint(tasks_bp, url_prefix="/tasks")
 
 
 if __name__ == "__main__":
