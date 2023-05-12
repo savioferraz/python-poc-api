@@ -18,7 +18,8 @@ class UserRepository:
         cursor = connection.cursor()
 
         query = "SELECT * FROM users WHERE id = ?"
-        result = cursor.execute(query, (user_id))
+        cursor.execute(query, (user_id))
+        result = cursor.fetchone()
 
         close_connection(connection)
 
@@ -26,6 +27,23 @@ class UserRepository:
             return {"name": result[1], "email": result[2]}
         else:
             return None
+
+    @staticmethod
+    def get_all_users():
+        connection = create_connection()
+        cursor = connection.cursor()
+
+        query = "SELECT * FROM users"
+        cursor.execute(query)
+        results = cursor.fetchall()
+
+        close_connection(connection)
+
+        users = []
+        for result in results:
+            users.append({"name": result[1], "email": result[2]})
+
+        return users
 
     @staticmethod
     def delete_user(user_id):

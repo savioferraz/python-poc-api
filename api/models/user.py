@@ -13,5 +13,13 @@ class User:
     def get_by_id(user_id):
         return UserRepository.get_user_by_id(user_id)
 
+    @staticmethod
+    def get_all():
+        return UserRepository.get_all_users()
+
+    @staticmethod
+    def delete(user_id):
+        UserRepository.delete_user(user_id)
+
     def to_dict(self):
         return {"name": self.name, "email": self.email}

@@ -1,4 +1,5 @@
 from api.models.user import User
+from flask import jsonify
 
 
 def create_user(data):
@@ -18,6 +19,11 @@ def get_user(user_id):
         return {"user": user.to_dict()}
     else:
         return {"message": "User not found"}
+
+
+def get_all_users():
+    users = User.get_all()
+    return jsonify(users=users)
 
 
 def delete_user(user_id):
