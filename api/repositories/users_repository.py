@@ -23,7 +23,7 @@ class UserRepository:
 
         close_connection(connection)
 
-        if result:
+        if result is not None:
             return {"name": result[1], "email": result[2]}
         else:
             return None
@@ -41,7 +41,7 @@ class UserRepository:
 
         users = []
         for result in results:
-            users.append({"name": result[1], "email": result[2]})
+            users.append({"id": result[0], "name": result[1], "email": result[2]})
 
         return users
 
