@@ -1,4 +1,4 @@
-from models.user import User
+from api.models.user import User
 
 
 def create_user(data):

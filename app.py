@@ -1,5 +1,5 @@
-from flask import Flask, request, jsonify
-from api.database import create_tables
+from flask import Flask
+from api.database.database import create_tables
 from api.routes.users_routes import users_bp
 
 app = Flask(__name__)

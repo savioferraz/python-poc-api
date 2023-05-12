@@ -1,4 +1,4 @@
-from repositories.users_repository import UserRepository
+from api.repositories.users_repository import UserRepository
 
 
 class User:

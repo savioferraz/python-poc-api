@@ -1,4 +1,4 @@
-from database import create_connection, close_connection
+from api.database.database import create_connection, close_connection
 
 
 class UserRepository:

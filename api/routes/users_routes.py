@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from controllers.users_controllers import create_user, get_user, delete_user
+from api.controllers.users_controllers import create_user, get_user, delete_user
 
 users_bp = Blueprint("users", __name__)
 
